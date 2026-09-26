@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: auto;
+    color-scheme: light dark;
+  }
+
+  body {
+    @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased transition-colors duration-300;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Minimalist Clean Glass Effect */
+.glass-header {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.dark .glass-header {
+  background: rgba(14, 14, 14, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+/* Minimalist Card */
+.minimal-card {
+  @apply bg-white dark:bg-neutral-900 border border-neutral-200/80 dark:border-neutral-800 transition-all duration-300;
+}
+
+.minimal-card:hover {
+  @apply border-neutral-400 dark:border-neutral-600;
+}
+
+/* Minimalist Underline */
+.nav-link-minimal {
+  position: relative;
+  display: inline-block;
+}
+
+.nav-link-minimal::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  @apply bg-neutral-900 dark:bg-white transition-all duration-300;
+}
+
+.nav-link-minimal:hover::after {
+  width: 100%;
+}
+
+/* Lightbox Animation */
+#lightbox {
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+#lightbox.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+#lightbox:not(.active) {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Aurelia Reserve & Bistro | St. Moritz</title>
+  <meta name="description" content="An intimate alpine sanctuary of bespoke canopy residences and three-star Michelin gastronomy in St. Moritz.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90' fill='%239E8E72'>✦</text></svg>">
+
+  <!-- Google Fonts: Cormorant Garamond & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body class="bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans selection:bg-neutral-900 selection:text-white dark:selection:bg-white dark:selection:text-neutral-950">
+
+  <!-- ==================== HEADER ==================== -->
+  <header id="navbar" class="fixed top-0 left-0 right-0 z-40 transition-all duration-300 py-5 px-6 lg:px-12 flex items-center justify-between">
+    <!-- Brand -->
+    <a href="#" class="flex items-center gap-3" aria-label="The Aurelia Reserve">
+      <span class="text-xl text-neutral-900 dark:text-neutral-100 font-serif">✦</span>
+      <span class="font-serif text-xl tracking-[0.15em] font-semibold text-neutral-900 dark:text-white uppercase">The Aurelia</span>
+    </a>
+
+    <!-- Nav Links -->
+    <nav class="hidden md:flex items-center gap-8 text-xs uppercase tracking-[0.2em] font-medium" aria-label="Main Navigation">
+      <a href="#about" class="nav-link-minimal text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">Story</a>
+      <a href="#suites" class="nav-link-minimal text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">Suites</a>
+      <a href="#dining" class="nav-link-minimal text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">Dining</a>
+      <a href="#amenities" class="nav-link-minimal text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">Amenities</a>
+      <a href="#gallery" class="nav-link-minimal text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white transition-colors">Gallery</a>
+    </nav>
+
+    <!-- Actions -->
+    <div class="flex items-center gap-3">
+      <!-- Theme Toggle -->
+      <button id="theme-toggle" type="button" class="p-2 rounded-full border border-neutral-300 dark:border-neutral-800 text-neutral-700 dark:text-neutral-200 hover:border-neutral-900 dark:hover:border-white transition-colors" aria-label="Toggle theme">
+        <svg id="theme-sun" class="w-4 h-4 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+        <svg id="theme-moon" class="w-4 h-4 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+      </button>
+
+      <!-- Reserve CTA -->
+      <a href="#reservation" class="px-5 py-2 text-xs uppercase tracking-wider font-medium rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 hover:opacity-90 transition-opacity">
+        Book Now
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-toggle" type="button" class="md:hidden p-2 text-neutral-900 dark:text-white" aria-label="Toggle menu">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-30 bg-neutral-50/98 dark:bg-neutral-950/98 backdrop-blur-xl transform translate-x-full transition-transform duration-300 md:hidden flex flex-col justify-between p-8 pt-24" aria-hidden="true">
+    <div class="flex flex-col space-y-6 text-center">
+      <a href="#about" class="mobile-link font-serif text-2xl uppercase tracking-wider">Story</a>
+      <a href="#suites" class="mobile-link font-serif text-2xl uppercase tracking-wider">Suites</a>
+      <a href="#dining" class="mobile-link font-serif text-2xl uppercase tracking-wider">Dining</a>
+      <a href="#amenities" class="mobile-link font-serif text-2xl uppercase tracking-wider">Amenities</a>
+      <a href="#gallery" class="mobile-link font-serif text-2xl uppercase tracking-wider">Gallery</a>
+    </div>
+    <a href="#reservation" class="mobile-link w-full py-3.5 text-center text-xs uppercase tracking-wider font-semibold rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-950">
+      Reserve a Stay
+    </a>
+  </div>
+
+  <main>
+    <!-- ==================== 1. HERO ==================== -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <!-- Image with overlay -->
+      <div class="absolute inset-0 z-0">
+        <img src="/assets/hero.jpg" alt="The Aurelia Reserve St. Moritz" class="w-full h-full object-cover brightness-[0.75] dark:brightness-[0.60]">
+        <div class="absolute inset-0 bg-gradient-to-t from-neutral-50 dark:from-neutral-950 via-transparent to-black/30"></div>
+      </div>
+
+      <!-- Hero Content -->
+      <div class="relative z-10 max-w-4xl mx-auto px-6 text-center text-white pt-20">
+        <span class="inline-block text-xs uppercase tracking-[0.3em] font-medium text-neutral-200 mb-4">St. Moritz · Switzerland</span>
+        <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl font-light tracking-tight leading-tight mb-6">
+          A Quiet Alpine Sanctuary
+        </h1>
+        <p class="max-w-xl mx-auto text-base sm:text-lg text-neutral-200 font-light leading-relaxed mb-10">
+          Understated luxury and panoramic alpine heights. Bespoke canopy residences, Michelin dining, and stillness.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="#suites" class="w-full sm:w-auto px-8 py-3.5 rounded-full bg-white text-neutral-950 text-xs uppercase tracking-widest font-semibold hover:bg-neutral-100 transition-colors">
+            Explore Suites
+          </a>
+          <a href="#reservation" class="w-full sm:w-auto px-8 py-3.5 rounded-full border border-white/60 text-white text-xs uppercase tracking-widest font-medium hover:border-white hover:bg-white/10 transition-colors">
+            Reserve Table / Stay
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 2. ABOUT ==================== -->
+    <section id="about" class="py-24 lg:py-32 px-6 lg:px-12 max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div>
+          <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-3">Our Legacy</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white leading-snug mb-6">
+            Refined Living in <br>
+            The Engadin Valley
+          </h2>
+          <p class="text-neutral-600 dark:text-neutral-300 text-sm sm:text-base leading-relaxed mb-8">
+            Conceived for those who seek space and silence. Every detail at The Aurelia Reserve honors natural alpine materials, discrete butler service, and three-star Michelin gastronomy.
+          </p>
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-neutral-200 dark:border-neutral-800 text-center">
+            <div>
+              <span class="font-serif text-3xl text-neutral-900 dark:text-white block font-light">1928</span>
+              <span class="text-[11px] uppercase tracking-wider text-neutral-500">Established</span>
+            </div>
+            <div>
+              <span class="font-serif text-3xl text-neutral-900 dark:text-white block font-light">3★</span>
+              <span class="text-[11px] uppercase tracking-wider text-neutral-500">Michelin Stars</span>
+            </div>
+            <div>
+              <span class="font-serif text-3xl text-neutral-900 dark:text-white block font-light">100%</span>
+              <span class="text-[11px] uppercase tracking-wider text-neutral-500">Carbon Neutral</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="rounded-2xl overflow-hidden border border-neutral-200 dark:border-neutral-800">
+          <img src="/assets/about.jpg" alt="The Aurelia Lounge" loading="lazy" class="w-full h-80 sm:h-96 object-cover">
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 3. SUITES ==================== -->
+    <section id="suites" class="py-24 lg:py-32 px-6 lg:px-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-neutral-900/40">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-2">Accommodations</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white">Canopy Residences</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Card 1 -->
+          <div class="minimal-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div class="h-64 overflow-hidden">
+              <img src="/assets/rooms/deluxe-suite.jpg" alt="Presidential Canopy Suite" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white">Presidential Canopy</h3>
+                  <span class="text-xs font-mono font-medium text-neutral-500">$1,450/n</span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                  180 m² private upper suite with steam sauna, walnut millwork, and sunset terrace.
+                </p>
+              </div>
+              <a href="#reservation" class="w-full py-2.5 text-center text-xs uppercase tracking-wider font-medium rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-white transition-colors">
+                Reserve
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="minimal-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div class="h-64 overflow-hidden">
+              <img src="/assets/rooms/penthouse-royal.jpg" alt="The Royal Penthouse" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white">Royal Penthouse</h3>
+                  <span class="text-xs font-mono font-medium text-neutral-500">$2,100/n</span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                  240 m² top floor with heated outdoor infinity plunge pool and dual fireplaces.
+                </p>
+              </div>
+              <a href="#reservation" class="w-full py-2.5 text-center text-xs uppercase tracking-wider font-medium rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-white transition-colors">
+                Reserve
+              </a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="minimal-card rounded-2xl overflow-hidden flex flex-col justify-between">
+            <div class="h-64 overflow-hidden">
+              <img src="/assets/rooms/garden-villa.jpg" alt="Alpine Garden Villa" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+            </div>
+            <div class="p-6 flex-1 flex flex-col justify-between">
+              <div>
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="font-serif text-2xl font-normal text-neutral-900 dark:text-white">Alpine Garden Villa</h3>
+                  <span class="text-xs font-mono font-medium text-neutral-500">$1,150/n</span>
+                </div>
+                <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 mb-4">
+                  140 m² freestanding chalet secluded in centuries-old pines with cedar hot tub.
+                </p>
+              </div>
+              <a href="#reservation" class="w-full py-2.5 text-center text-xs uppercase tracking-wider font-medium rounded-full border border-neutral-300 dark:border-neutral-700 hover:border-neutral-900 dark:hover:border-white transition-colors">
+                Reserve
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 4. DINING ==================== -->
+    <section id="dining" class="py-24 lg:py-32 px-6 lg:px-12 max-w-6xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-2">Haute Cuisine</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white">The Aurelia Bistro</h2>
+        <p class="text-xs sm:text-sm text-neutral-500 mt-2">Executive Chef Marco Vanezza · 3 Michelin Stars</p>
+      </div>
+
+      <!-- Chef Signature Card -->
+      <div class="minimal-card rounded-2xl overflow-hidden mb-12 grid grid-cols-1 md:grid-cols-12 items-center">
+        <div class="md:col-span-7 h-72 sm:h-96">
+          <img src="/assets/dining/chef-special.jpg" alt="A5 Kagoshima Wagyu" loading="lazy" class="w-full h-full object-cover">
+        </div>
+        <div class="md:col-span-5 p-8 sm:p-10">
+          <span class="text-[11px] uppercase tracking-widest text-neutral-500 font-mono block mb-2">Signature Course</span>
+          <h3 class="font-serif text-2xl sm:text-3xl text-neutral-900 dark:text-white mb-3">A5 Kagoshima Wagyu & Truffle</h3>
+          <p class="text-xs sm:text-sm text-neutral-600 dark:text-neutral-400 leading-relaxed mb-6">
+            Charcoal-seared Japanese tenderloin with port reduction, silk parsnip purée, and Périgord black truffles.
+          </p>
+          <a href="#reservation" class="px-6 py-2.5 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 text-xs uppercase tracking-wider font-medium">
+            Reserve Table
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 Sorted Dishes -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        <div class="minimal-card rounded-xl p-5">
+          <div class="h-40 rounded-lg overflow-hidden mb-4">
+            <img src="/assets/dining/dish-seabass.jpg" alt="Chilean Sea Bass" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-1">
+            <h4 class="font-serif text-lg text-neutral-900 dark:text-white">Chilean Sea Bass</h4>
+            <span class="text-xs font-mono text-neutral-500">$68</span>
+          </div>
+          <p class="text-xs text-neutral-500">Poached in saffron bouillon with fennel essence.</p>
+        </div>
+
+        <div class="minimal-card rounded-xl p-5">
+          <div class="h-40 rounded-lg overflow-hidden mb-4">
+            <img src="/assets/dining/dish-risotto.jpg" alt="Saffron Acquerello" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-1">
+            <h4 class="font-serif text-lg text-neutral-900 dark:text-white">Saffron Acquerello</h4>
+            <span class="text-xs font-mono text-neutral-500">$54</span>
+          </div>
+          <p class="text-xs text-neutral-500">Carnaroli rice, 36-month Reggiano, gold leaf.</p>
+        </div>
+
+        <div class="minimal-card rounded-xl p-5">
+          <div class="h-40 rounded-lg overflow-hidden mb-4">
+            <img src="/assets/dining/dish-dessert.jpg" alt="Valrhona Sphere" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex items-center justify-between mb-1">
+            <h4 class="font-serif text-lg text-neutral-900 dark:text-white">Valrhona Grand Cru</h4>
+            <span class="text-xs font-mono text-neutral-500">$32</span>
+          </div>
+          <p class="text-xs text-neutral-500">72% dark cocoa orb with bourbon gelato.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 5. AMENITIES (CLEAN MINIMAL ICONS) ==================== -->
+    <section id="amenities" class="py-24 lg:py-32 px-6 lg:px-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-neutral-900/40">
+      <div class="max-w-5xl mx-auto">
+        <div class="text-center max-w-xl mx-auto mb-16">
+          <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-2">Sanctuary Features</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white">Curated Privileges</h2>
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Thermal Spa</h4>
+              <p class="text-xs text-neutral-500">Mineral hydrotherapy</p>
+            </div>
+          </div>
+
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 15c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2M3 19c2.5 0 2.5 2 5 2s2.5-2 5-2 2.5 2 5 2 2.5-2 5-2"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Infinity Pool</h4>
+              <p class="text-xs text-neutral-500">Heated alpine waters</p>
+            </div>
+          </div>
+
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Private Helipad</h4>
+              <p class="text-xs text-neutral-500">Direct LSZS link</p>
+            </div>
+          </div>
+
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M6 6v12m12-12v12M9 12h6M4 18h4m8 0h4"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Fitness Studio</h4>
+              <p class="text-xs text-neutral-500">Technogym gear</p>
+            </div>
+          </div>
+
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Wine Cellar</h4>
+              <p class="text-xs text-neutral-500">4,500 rare vintages</p>
+            </div>
+          </div>
+
+          <div class="minimal-card p-6 rounded-xl flex items-center gap-4">
+            <svg class="w-6 h-6 text-neutral-600 dark:text-neutral-300 flex-shrink-0" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/></svg>
+            <div>
+              <h4 class="font-serif text-base text-neutral-900 dark:text-white">Starlink Wi-Fi</h4>
+              <p class="text-xs text-neutral-500">High-speed gigabit</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 6. GALLERY ==================== -->
+    <section id="gallery" class="py-24 lg:py-32 px-6 lg:px-12 max-w-6xl mx-auto">
+      <div class="text-center max-w-xl mx-auto mb-16">
+        <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-2">Visual Moments</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white">The Atmosphere</h2>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4" id="gallery-grid">
+        <div class="gallery-item rounded-xl overflow-hidden cursor-pointer h-64 border border-neutral-200 dark:border-neutral-800" data-src="/assets/gallery/gallery-1.jpg" data-caption="Thermal Infinity Pool at Dusk">
+          <img src="/assets/gallery/gallery-1.jpg" alt="Thermal Pool" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="gallery-item rounded-xl overflow-hidden cursor-pointer h-64 border border-neutral-200 dark:border-neutral-800" data-src="/assets/gallery/gallery-2.jpg" data-caption="Private Sommelier Vault">
+          <img src="/assets/gallery/gallery-2.jpg" alt="Sommelier Vault" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="gallery-item rounded-xl overflow-hidden cursor-pointer h-64 border border-neutral-200 dark:border-neutral-800" data-src="/assets/gallery/gallery-3.jpg" data-caption="Mineral Hydrotherapy Spa">
+          <img src="/assets/gallery/gallery-3.jpg" alt="Hydrotherapy Spa" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+        <div class="gallery-item rounded-xl overflow-hidden cursor-pointer h-64 border border-neutral-200 dark:border-neutral-800" data-src="/assets/gallery/gallery-4.jpg" data-caption="Starlit Veranda Dining">
+          <img src="/assets/gallery/gallery-4.jpg" alt="Veranda Dining" loading="lazy" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
+        </div>
+      </div>
+    </section>
+
+    <!-- Simple Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4">
+      <button id="lightbox-close" class="absolute top-6 right-6 text-white text-2xl p-2 hover:opacity-75">✕</button>
+      <div class="max-w-4xl text-center">
+        <img id="lightbox-img" src="" alt="" class="max-h-[80vh] w-auto mx-auto rounded-lg">
+        <p id="lightbox-caption" class="text-white font-serif text-lg mt-3"></p>
+      </div>
+    </div>
+
+    <!-- ==================== 7. TESTIMONIAL ==================== -->
+    <section class="py-20 px-6 lg:px-12 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-100/60 dark:bg-neutral-900/40 text-center">
+      <div class="max-w-3xl mx-auto">
+        <div class="text-neutral-400 mb-4 text-sm">★★★★★</div>
+        <blockquote class="font-serif text-2xl sm:text-3xl text-neutral-900 dark:text-white font-light italic leading-relaxed mb-6">
+          "The Aurelia Reserve sets a global benchmark. The silence of the morning mountains from the Royal Penthouse, followed by Chef Marco’s Wagyu course, was pure perfection."
+        </blockquote>
+        <cite class="not-italic text-xs uppercase tracking-wider font-semibold text-neutral-500 block">
+          Lord Harrison Sterling · London & Geneva
+        </cite>
+      </div>
+    </section>
+
+    <!-- ==================== 8. RESERVATION ==================== -->
+    <section id="reservation" class="py-24 lg:py-32 px-6 lg:px-12 max-w-3xl mx-auto">
+      <div class="minimal-card rounded-2xl p-8 sm:p-12 border border-neutral-200 dark:border-neutral-800">
+        <div class="text-center mb-8">
+          <span class="text-xs uppercase tracking-[0.25em] text-neutral-500 font-medium block mb-2">Inquiries</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-light text-neutral-900 dark:text-white">Make a Reservation</h2>
+          <p class="text-xs sm:text-sm text-neutral-500 mt-2">Direct bookings enjoy complimentary Samedan helipad transfers.</p>
+        </div>
+
+        <form id="res-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-neutral-500 font-mono mb-1.5">Full Name</label>
+              <input type="text" id="res-name" required placeholder="Julian Sterling" class="w-full px-4 py-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-neutral-900 dark:focus:border-white">
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-neutral-500 font-mono mb-1.5">Email Address</label>
+              <input type="email" id="res-email" required placeholder="julian@sterling.com" class="w-full px-4 py-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-neutral-900 dark:focus:border-white">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-neutral-500 font-mono mb-1.5">Reservation Type</label>
+              <select id="res-type" class="w-full px-4 py-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-neutral-900 dark:focus:border-white">
+                <option value="stay">Canopy Suite Stay</option>
+                <option value="dining">The Bistro Dining Table</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs uppercase tracking-wider text-neutral-500 font-mono mb-1.5">Preferred Date</label>
+              <input type="date" id="res-date" required class="w-full px-4 py-2.5 rounded-lg bg-neutral-50 dark:bg-neutral-950 border border-neutral-200 dark:border-neutral-800 text-sm focus:outline-none focus:border-neutral-900 dark:focus:border-white">
+            </div>
+          </div>
+
+          <div class="pt-4 text-center">
+            <button type="submit" class="w-full sm:w-auto px-10 py-3 rounded-full bg-neutral-900 text-white dark:bg-white dark:text-neutral-950 text-xs uppercase tracking-widest font-semibold hover:opacity-90 transition-opacity">
+              Confirm Reservation Request
+            </button>
+          </div>
+        </form>
+
+        <div id="res-success" class="hidden text-center py-8">
+          <span class="text-3xl block mb-2">✓</span>
+          <h3 class="font-serif text-2xl font-light text-neutral-900 dark:text-white mb-2">Request Received</h3>
+          <p id="res-success-text" class="text-sm text-neutral-500"></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="py-16 px-6 lg:px-12 border-t border-neutral-200 dark:border-neutral-800 text-xs text-neutral-500">
+    <div class="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
+      <div class="flex items-center gap-3">
+        <span class="font-serif text-lg font-semibold text-neutral-900 dark:text-white uppercase">The Aurelia</span>
+        <span>·</span>
+        <span>St. Moritz, Switzerland</span>
+      </div>
+      <div class="flex items-center gap-6">
+        <span>+41 81 837 0000</span>
+        <span>concierge@theaureliareserve.com</span>
+      </div>
+      <div>
+        © 2025 The Aurelia Reserve. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>
