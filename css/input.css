@@ -6,16 +6,36 @@
   html {
     scroll-behavior: auto;
     color-scheme: light dark;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
   }
 
   body {
     @apply bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100 font-sans antialiased transition-colors duration-300;
+    max-width: 100%;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: transparent;
   }
 
   h1, h2, h3, h4 {
     font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
     letter-spacing: -0.015em;
   }
+
+  /* Prevent auto-zoom on iOS Safari */
+  @media (max-width: 768px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
+  }
+}
+
+/* Fast Rendering for Below-the-fold Sections */
+.section-render-optim {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 600px;
 }
 
 /* Minimalist Clean Glass Effect */

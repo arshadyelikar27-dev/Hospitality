@@ -1,15 +1,19 @@
 import Lenis from 'lenis';
 
 // ==========================================
-// 1. LENIS SMOOTH SCROLL
+// 1. LENIS SMOOTH SCROLL (PERFORMANCE OPTIMIZED)
 // ==========================================
 let lenis;
+const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0);
+
 try {
   lenis = new Lenis({
-    duration: 1.1,
+    duration: 1.0,
     easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical',
-    smoothWheel: true,
+    smoothWheel: !isTouchDevice,
+    touchMultiplier: 1.5,
+    infinite: false,
   });
 
   function raf(time) {
@@ -18,7 +22,7 @@ try {
   }
   requestAnimationFrame(raf);
 } catch (e) {
-  console.warn('Lenis fallback:', e);
+  console.warn('Lenis fallback active:', e);
 }
 
 // ==========================================
@@ -47,36 +51,63 @@ if (themeToggle) {
 }
 
 // ==========================================
-// 3. NAVBAR SCROLL GLASS EFFECT
+// 3. NAVBAR SCROLL GLASS EFFECT (RAF THROTTLED)
 // ==========================================
 const navbar = document.getElementById('navbar');
+let ticking = false;
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add('glass-header', 'shadow-sm');
-  } else {
-    navbar.classList.remove('glass-header', 'shadow-sm');
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      if (window.scrollY > 40) {
+        navbar.classList.add('glass-header', 'shadow-sm');
+      } else {
+        navbar.classList.remove('glass-header', 'shadow-sm');
+      }
+      ticking = false;
+    });
+    ticking = true;
   }
-});
+}, { passive: true });
 
 // ==========================================
-// 4. MOBILE DRAWER
+// 4. MOBILE DRAWER (RESPONSIVE & ACCESSIBLE)
 // ==========================================
 const mobileToggle = document.getElementById('mobile-toggle');
+const mobileClose = document.getElementById('mobile-close');
+const mobileBackdrop = document.getElementById('mobile-backdrop');
 const mobileDrawer = document.getElementById('mobile-drawer');
 const mobileLinks = document.querySelectorAll('.mobile-link');
 
-let drawerOpen = false;
-function toggleDrawer(open) {
-  drawerOpen = typeof open === 'boolean' ? open : !drawerOpen;
-  if (drawerOpen) {
+function setDrawer(open) {
+  if (!mobileDrawer) return;
+  if (open) {
     mobileDrawer.classList.remove('translate-x-full');
+    mobileDrawer.setAttribute('aria-hidden', 'false');
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.remove('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.add('opacity-100', 'pointer-events-auto');
+    }
+    document.body.style.overflow = 'hidden';
   } else {
     mobileDrawer.classList.add('translate-x-full');
+    mobileDrawer.setAttribute('aria-hidden', 'true');
+    if (mobileBackdrop) {
+      mobileBackdrop.classList.add('opacity-0', 'pointer-events-none');
+      mobileBackdrop.classList.remove('opacity-100', 'pointer-events-auto');
+    }
+    document.body.style.overflow = '';
   }
 }
 
-if (mobileToggle) mobileToggle.addEventListener('click', () => toggleDrawer());
-mobileLinks.forEach(link => link.addEventListener('click', () => toggleDrawer(false)));
+if (mobileToggle) mobileToggle.addEventListener('click', () => setDrawer(true));
+if (mobileClose) mobileClose.addEventListener('click', () => setDrawer(false));
+if (mobileBackdrop) mobileBackdrop.addEventListener('click', () => setDrawer(false));
+mobileLinks.forEach(link => link.addEventListener('click', () => setDrawer(false)));
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') setDrawer(false);
+});
 
 // ==========================================
 // 5. SMOOTH ANCHOR SCROLL
