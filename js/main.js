@@ -153,7 +153,7 @@ if (resForm) {
     if (!name) return;
 
     const ref = Math.floor(1000 + Math.random() * 9000);
-    resSuccessText.textContent = `Thank you, ${name}. Your reservation request #AUR-${ref} has been received. Our concierge will contact you shortly.`;
+    resSuccessText.textContent = `Warm greetings, ${name}. Your booking enquiry (#AUR-${ref}) has been duly received. Our Guest Relations Concierge will connect with you shortly on priority.`;
     resForm.classList.add('hidden');
     resSuccess.classList.remove('hidden');
   });
