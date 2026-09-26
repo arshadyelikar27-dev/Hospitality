@@ -709,10 +709,6 @@ h1, h2, h3, h4 {
   margin-bottom: 1.25rem;
 }
 
-.mb-6 {
-  margin-bottom: 1.5rem;
-}
-
 .mb-8 {
   margin-bottom: 2rem;
 }
@@ -801,6 +797,10 @@ h1, h2, h3, h4 {
   min-height: 100dvh;
 }
 
+.min-h-\[34px\] {
+  min-height: 34px;
+}
+
 .min-h-\[38px\] {
   min-height: 38px;
 }
@@ -853,12 +853,8 @@ h1, h2, h3, h4 {
   max-width: 72rem;
 }
 
-.max-w-\[260px\] {
-  max-width: 260px;
-}
-
-.max-w-md {
-  max-width: 28rem;
+.max-w-\[280px\] {
+  max-width: 280px;
 }
 
 .max-w-xl {
@@ -1042,8 +1038,8 @@ h1, h2, h3, h4 {
   border-color: rgb(255 255 255 / 0.6);
 }
 
-.bg-black\/25 {
-  background-color: rgb(0 0 0 / 0.25);
+.bg-black\/30 {
+  background-color: rgb(0 0 0 / 0.3);
 }
 
 .bg-black\/60 {
@@ -1244,6 +1240,10 @@ h1, h2, h3, h4 {
   font-size: 11px;
 }
 
+.text-\[28px\] {
+  font-size: 28px;
+}
+
 .text-\[9px\] {
   font-size: 9px;
 }
@@ -1305,8 +1305,8 @@ h1, h2, h3, h4 {
   font-style: normal;
 }
 
-.leading-\[1\.2\] {
-  line-height: 1.2;
+.leading-\[1\.18\] {
+  line-height: 1.18;
 }
 
 .leading-relaxed {
@@ -1321,8 +1321,8 @@ h1, h2, h3, h4 {
   letter-spacing: 0.14em;
 }
 
-.tracking-\[0\.16em\] {
-  letter-spacing: 0.16em;
+.tracking-\[0\.18em\] {
+  letter-spacing: 0.18em;
 }
 
 .tracking-\[0\.25em\] {
@@ -1353,6 +1353,11 @@ h1, h2, h3, h4 {
 .text-neutral-200 {
   --tw-text-opacity: 1;
   color: rgb(229 229 229 / var(--tw-text-opacity, 1));
+}
+
+.text-neutral-300 {
+  --tw-text-opacity: 1;
+  color: rgb(212 212 212 / var(--tw-text-opacity, 1));
 }
 
 .text-neutral-400 {
@@ -1406,6 +1411,10 @@ h1, h2, h3, h4 {
 
 .opacity-100 {
   opacity: 1;
+}
+
+.opacity-90 {
+  opacity: 0.9;
 }
 
 .shadow-2xl {
@@ -1864,6 +1873,10 @@ h1, h2, h3, h4 {
     height: 2.25rem;
   }
 
+  .sm\:min-h-\[40px\] {
+    min-height: 40px;
+  }
+
   .sm\:min-h-\[44px\] {
     min-height: 44px;
   }
@@ -1884,8 +1897,12 @@ h1, h2, h3, h4 {
     width: auto;
   }
 
-  .sm\:max-w-none {
-    max-width: none;
+  .sm\:max-w-md {
+    max-width: 28rem;
+  }
+
+  .sm\:max-w-xs {
+    max-width: 20rem;
   }
 
   .sm\:grid-cols-2 {
@@ -1961,11 +1978,6 @@ h1, h2, h3, h4 {
   .sm\:px-7 {
     padding-left: 1.75rem;
     padding-right: 1.75rem;
-  }
-
-  .sm\:px-8 {
-    padding-left: 2rem;
-    padding-right: 2rem;
   }
 
   .sm\:py-1 {
